@@ -6,6 +6,6 @@ class Order < ActiveRecord::Base
   validates :product_id, length: { maximum: 500 }
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/,  message: "Not valid"}
 
-  validates :mobile, format: {:with => /!((^[XYZ]\d{7,8}|^\d{8})[A-HJ-NP-TV-Z]$)/,  :message => 'Not valid'}
+  validates :mobile, format: {:with => /\A^\+?\d+(-\d+)*$\z/,  :message => "Not valid"}
 
 end
