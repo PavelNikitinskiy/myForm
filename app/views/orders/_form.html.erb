@@ -9,9 +9,62 @@
       <% end %>
       </ul>
     </div>
+  <% else %>
+    <div class="daysSum">
+      <div class="form-group">
+        <%= f.label :days, "Days", class: "col-sm-6 control-label text-main" %>
+        <div class="col-sm-6">
+          <%= f.number_field :days, placeholder: 'from 1 to 30', max: '30', min:'1', class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :sum, "Sum $", class: "col-sm-6 control-label text-main" %>
+        <div class="col-sm-6">
+          <%= f.number_field :sum, placeholder: 'from 1 to 600',max: '600', min:'1', class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="emailId">
+      <div class="form-group">
+        <%= f.label :email, "Email", class: "col-sm-6 control-label text-main" %>
+        <div class="col-sm-6">
+          <%= f.email_field :email, placeholder: 'Email',  class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :product_id, "Product id", class: "col-sm-6 control-label text-main" %>
+        <div class="col-sm-6">
+          <%= f.text_field :product_id, placeholder: 'Link to product', class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="mobile">
+      <div class="form-group">
+        <%= f.label :mobile, "Mobile", class: "col-sm-6 control-label text-main" %>
+        <div class="col-sm-6">
+          <%= f.text_field :mobile, placeholder: 'Mobile', class: 'form-control' %>
+        </div>
+      </div>
+    </div>
   <% end %>
-
-  <div class="actions">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  <div class=" text-center">
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+  $('#order_days, #order_sum').on('keyup paste',function(){
+      if (($('#order_days').val().length >= 1)&&($('#order_sum').val().length >= 1)) {$('.emailId').show();}
+      else {$('.emailId,.mobile').hide();}
+  });
+  $('#order_email, #order_product_id').on('keyup paste',function(){
+    if (($('#order_email').val().length >= 1)&&($('#order_product_id').val().length >= 1)) {$('.mobile').show();}
+    else {$('.mobile').hide();}
+  });
+  $('#order_mobile').on('keyup paste',function(){
+    if ($('#order_mobile').val().length >= 1) {$('input').show();}
+
+  });
+</script>
