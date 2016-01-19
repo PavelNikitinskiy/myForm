@@ -40,9 +40,9 @@
     </div>
     <div class="mobile">
       <div class="form-group">
-        <%= f.label :mobile, "Mobile", class: "col-sm-6 control-label text-main" %>
+        <%= f.label :mobile, "Mobile number", class: "col-sm-6 control-label text-main" %>
         <div class="col-sm-6">
-          <%= f.text_field :mobile, placeholder: 'Mobile', class: 'form-control' %>
+          <%= f.text_field :mobile, placeholder: '555-55-55', class: 'form-control' %>
         </div>
       </div>
     </div>
@@ -57,9 +57,9 @@
 <script>
   $('#order_days, #order_sum').on('keyup paste',function(){
       if (($('#order_days').val().length >= 1)&&($('#order_sum').val().length >= 1)) {$('.emailId').show();}
-      else {$('.emailId,.mobile').hide();}
+      else {$('.emailId').hide();}
   });
-  $('#order_email, #order_product_id').on('keyup paste',function(){
+  $('#order_email, #order_product_id,#order_days, #order_sum').on('keyup paste',function(){
     if (($('#order_email').val().length >= 1)&&($('#order_product_id').val().length >= 1)) {$('.mobile').show();}
     else {$('.mobile').hide();}
   });
